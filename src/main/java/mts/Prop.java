@@ -10,7 +10,9 @@ public class Prop {
 	String Password = "";
 	String Driver = "";
 	String URL = "";
-	int MaxOpenedConnections = 0;
+	int MaxOpenedConnections;
+	int timeWaitFreeConn;
+	int timeWaitDelayCloseConn;
 
 	public Prop() {
 		Properties prop = new Properties();
@@ -23,6 +25,8 @@ public class Prop {
 			this.Driver = prop.getProperty("Driver");
 			this.URL = prop.getProperty("URL");
 			this.MaxOpenedConnections = Integer.valueOf(prop.getProperty("MaxOpenedConnections"));
+			this.timeWaitFreeConn = Integer.valueOf(prop.getProperty("timeWaitFreeConn"));
+			this.timeWaitDelayCloseConn = Integer.valueOf(prop.getProperty("timeWaitDelayCloseConn"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
